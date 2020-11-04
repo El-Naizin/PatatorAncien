@@ -158,6 +158,7 @@
     <ClCompile Include="Bus.cpp" />
     <ClCompile Include="Debugger.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="Input.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Framework_interface.cpp" />
     <ClCompile Include="Patator.cpp" />
@@ -167,6 +168,9 @@
     <ClInclude Include="Debugger.h" />
     <ClInclude Include="Framework_interface.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="Input.h" />
+    <ClInclude Include="Message.h" />
+    <ClInclude Include="Message_contents.h" />
     <ClInclude Include="Patator.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

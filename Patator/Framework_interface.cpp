@@ -1,11 +1,24 @@
 #include "Framework_interface.h"
 #include "Patator.h"
+#include "Input.h"
 
 Bus* initializeFramework(int windowWidth, int windowHeight) {
 	Bus* bus = new Bus();
 	Patator* renderer = new Patator(windowWidth, windowHeight, bus);
-	if (bus->setSystemReferences(renderer) == 0)
+	Input* input = new Input(bus);
+#ifndef NDEBUG
+	Debugger* debugger = new Debugger(bus);
+	if (bus->setSystemReferences(renderer, input, debugger) == 0)
 		return bus;
-	else
+#else
+	if (bus->setSystemReferences(renderer, input) == 0)
+		return bus;
+#endif
+	else {
+		Message message{};
+		message.mType = MessageType::DEBUG;
+		std::string contents = "At initializeFramework, couldn't initialize all systems";
+		bus->sendMessage(&message);
 		return nullptr;
+	}
 }

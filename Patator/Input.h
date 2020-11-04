@@ -1,18 +1,14 @@
 #pragma once
-#ifndef NDEBUG
 #include "Message.h"
-#include <fstream>
 
 class Bus;
 
-class Debugger
-{
+class Input {
 public:
-	Debugger(Bus* bus);
+	Input(Bus* bus);
+	void processInputs();
 	void handleMessage(Message* message);
-
 private:
-	std::ofstream debugOutput;
 	Bus* bus;
+	int debugCounter = 0;
 };
-#endif
