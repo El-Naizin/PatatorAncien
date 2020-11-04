@@ -155,7 +155,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Bus.cpp" />
+    <ClCompile Include="Debugger.cpp" />
+    <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Framework_interface.cpp" />
+    <ClCompile Include="Patator.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Bus.h" />
+    <ClInclude Include="Debugger.h" />
+    <ClInclude Include="Framework_interface.h" />
+    <ClInclude Include="Game.h" />
+    <ClInclude Include="Patator.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
