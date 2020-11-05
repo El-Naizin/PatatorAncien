@@ -15,10 +15,11 @@ Bus* initializeFramework(int windowWidth, int windowHeight) {
 		return bus;
 #endif
 	else {
-		Message message{};
-		message.mType = MessageType::DEBUG;
+		Message* message = new Message();
+		message->mType = MessageType::DEBUG;
+		message->content = nullptr;
 		std::string contents = "At initializeFramework, couldn't initialize all systems";
-		bus->sendMessage(&message);
+		bus->sendMessage(message);
 		return nullptr;
 	}
 }

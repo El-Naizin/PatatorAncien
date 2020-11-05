@@ -14,15 +14,15 @@ void Game::start() {
 	bool stop = false;
 	TimePoint currentTime = Clock::now();
 	TimePoint newTime;
-	Message advanceSimulation{};
-	advanceSimulation.mType = MessageType::TIME_STEP;
-	advanceSimulation.content = nullptr;
+	Message* advanceSimulation = new Message();
+	advanceSimulation->mType = MessageType::TIME_STEP;
+	advanceSimulation->content = nullptr;
 	while (!stop) {
 		newTime = Clock::now();
 		while (newTime - currentTime < DELTA_TIME) {
 			newTime = Clock::now();
 		}
-		this->bus->sendMessage(&advanceSimulation);
+		this->bus->sendMessage(advanceSimulation);
 		currentTime = newTime;
 	}
 }

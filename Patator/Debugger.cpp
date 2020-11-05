@@ -1,12 +1,13 @@
 #ifndef NDEBUG
 #include "Debugger.h"
+#include "Message_contents.h"
 
 void Debugger::handleMessage(Message* message) {
 	switch (message->mType) {
 	case MessageType::INPUT: 
 		{
-			char* contents = (char*)message->content;
-			this->debugOutput << contents[0] << std::endl;
+			MessageInput* contents = (MessageInput*)message->content;
+			this->debugOutput << contents->input << std::endl;
 		}
 		break;
 	case MessageType::TIME_STEP:

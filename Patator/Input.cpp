@@ -8,11 +8,12 @@ Input::Input(Bus* bus) {
 
 //Processes user input
 void Input::processInputs() {
-	Message message{};
-	message.content = new MessageInput();
-	message.mType = MessageType::INPUT;
-	((MessageInput*)message.content)->input = 'W';
-	bus->sendMessage(&message);
+	Message* message = new Message();
+	MessageInput* content = new MessageInput();
+	content->input = 'A';
+	message->content = content;
+	message->mType = MessageType::INPUT;
+	bus->sendMessage(message);
 }
 
 //Debugging prototype of the function
