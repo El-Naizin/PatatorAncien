@@ -1,6 +1,7 @@
 #include "Framework_interface.h"
 #include "Patator.h"
 #include "Input.h"
+#include <string>
 
 Bus* initializeFramework(int windowWidth, int windowHeight) {
 	Bus* bus = new Bus();

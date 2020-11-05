@@ -14,7 +14,7 @@ void Debugger::handleMessage(Message* message) {
 		break;
 	case MessageType::DEBUG:
 		{
-			std::string* contents = (std::string*)message->content;
+			MessageDebug* contents = (MessageDebug*)message->content;
 			this->debugOutput << contents << std::endl;
 		}
 		break;
@@ -28,7 +28,7 @@ void Debugger::handleMessage(Message* message) {
 }
 
 Debugger::Debugger(Bus* bus) {
-	this->debugOutput.open("logs.txt");
+	this->debugOutput.open("Debugger.log");
 	this->bus = bus;
 }
 #endif
